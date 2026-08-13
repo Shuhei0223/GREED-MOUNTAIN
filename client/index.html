@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GREED MOUNTAIN
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="container">
+
+        <!-- ===================== -->
+        <!-- タイトル -->
+        <!-- ===================== -->
+
+        <header class="header">
+
+            <h1>GREED MOUNTAIN</h1>
+
+            <p>
+                多数派を避けて山頂を目指せ
+            </p>
+
+        </header>
+
+
+        <!-- ===================== -->
+        <!-- ロビー -->
+        <!-- ===================== -->
+
+        <section id="lobby" class="screen">
+
+            <div class="panel">
+
+                <h2>ゲーム参加</h2>
+
+                <label>
+                    プレイヤー名
+                </label>
+
+                <input
+                    id="playerName"
+                    type="text"
+                    maxlength="20"
+                    placeholder="名前を入力"
+                >
+
+                <button id="createButton">
+                    ルームを作る
+                </button>
+
+                <div class="separator">
+                    または
+                </div>
+
+                <label>
+                    ルームID
+                </label>
+
+                <input
+                    id="roomIdInput"
+                    type="text"
+                    maxlength="4"
+                    placeholder="例：AB12"
+                >
+
+                <button id="joinButton">
+                    ルームに参加
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================== -->
+        <!-- 待機画面 -->
+        <!-- ===================== -->
+
+        <section
+            id="waiting"
+            class="screen hidden"
+        >
+
+            <div class="panel">
+
+                <h2>待機中</h2>
+
+                <div class="roomCode">
+                    <span>ルームID</span>
+                    <strong id="roomIdDisplay">----</strong>
+                </div>
+
+                <div class="playerCount">
+                    <span id="playerCount">0</span>
+                    / 25 人
+                </div>
+
+                <div
+                    id="waitingPlayers"
+                    class="waitingPlayers"
+                ></div>
+
+                <button
+                    id="startButton"
+                    class="primary"
+                >
+                    ゲーム開始
+                </button>
+
+                <p
+                    id="waitingMessage"
+                    class="message"
+                >
+                    3人以上集まると開始できます
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================== -->
+        <!-- ゲーム -->
+        <!-- ===================== -->
+
+        <section
+            id="game"
+            class="hidden"
+        >
+
+            <div class="gameHeader">
+
+                <div>
+                    ROUND
+                    <strong id="roundNumber">1</strong>
+                </div>
+
+                <div
+                    id="timer"
+                    class="timer"
+                >
+                    30
+                </div>
+
+                <div>
+                    <span id="chosenCount">0</span>
+                    /
+                    <span id="totalCount">0</span>
+                    選択済み
+                </div>
+
+            </div>
+
+
+            <div class="gameLayout">
+
+                <!-- ================= -->
+                <!-- すごろく盤 -->
+                <!-- ================= -->
+
+                <div class="boardPanel">
+
+                    <h2>現在地</h2>
+
+                    <div
+                        id="board"
+                        class="board"
+                    ></div>
+
+                </div>
+
+
+                <!-- ================= -->
+                <!-- プレイヤー一覧 -->
+                <!-- ================= -->
+
+                <aside class="rankingPanel">
+
+                    <h2>順位</h2>
+
+                    <div
+                        id="ranking"
+                        class="ranking"
+                    ></div>
+
+                </aside>
+
+            </div>
+
+
+            <!-- ===================== -->
+            <!-- 選択UI -->
+            <!-- ===================== -->
+
+            <div
+                id="choicePanel"
+                class="choicePanel"
+            >
+
+                <h2>
+                    進む数を選択
+                </h2>
+
+                <div class="choiceButtons">
+
+                    <button data-number="1">1</button>
+                    <button data-number="2">2</button>
+                    <button data-number="3">3</button>
+                    <button data-number="4">4</button>
+                    <button data-number="5">5</button>
+                    <button data-number="6">6</button>
+
+                </div>
+
+                <div
+                    id="myChoice"
+                    class="myChoice"
+                >
+                    未選択
+                </div>
+
+            </div>
+
+
+            <!-- ===================== -->
+            <!-- 結果 -->
+            <!-- ===================== -->
+
+            <div
+                id="resultPanel"
+                class="resultPanel hidden"
+            >
+
+                <h2>
+                    今回の結果
+                </h2>
+
+                <div
+                    id="resultNumbers"
+                    class="resultNumbers"
+                ></div>
+
+                <div
+                    id="resultMessage"
+                    class="resultMessage"
+                ></div>
+
+            </div>
+
+            <div
+                id="eliminationNotice" 
+                class="eliminationNotice hidden"></div>
+
+        </section>
+
+
+        <!-- ===================== -->
+        <!-- ゲーム終了 -->
+        <!-- ===================== -->
+
+        <section
+            id="finished"
+            class="screen hidden"
+        >
+
+            <div class="panel">
+
+                <h2>ゲーム終了！</h2>
+
+                <div
+                    id="finalRanking"
+                    class="finalRanking"
+                ></div>
+
+                <button
+                    onclick="location.reload()"
+                >
+                    最初に戻る
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================== -->
+        <!-- エラー -->
+        <!-- ===================== -->
+
+        <div
+            id="errorMessage"
+            class="errorMessage hidden"
+        ></div>
+
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,611 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: #f2f4f7;
+    color: #222;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    width: min(1200px, 100%);
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* =========================
+   Header
+========================= */
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+}
+
+.header p {
+    margin: 6px 0 0;
+    color: #666;
+}
+
+
+/* =========================
+   Screen
+========================= */
+
+.screen {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================
+   Panel
+========================= */
+
+.panel {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.panel h2 {
+    margin-top: 0;
+}
+
+
+/* =========================
+   Form
+========================= */
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    height: 50px;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    padding: 0 12px;
+    font-size: 18px;
+}
+
+button {
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: white;
+    padding: 13px 20px;
+    min-height: 48px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.panel button {
+    width: 100%;
+    margin-top: 15px;
+}
+
+button.primary {
+    background: #1769aa;
+}
+
+.separator {
+    text-align: center;
+    color: #888;
+    margin: 20px 0;
+}
+
+
+/* =========================
+   Room
+========================= */
+
+.roomCode {
+    background: #f0f2f5;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.roomCode span {
+    display: block;
+    color: #777;
+    font-size: 14px;
+}
+
+.roomCode strong {
+    display: block;
+    font-size: 36px;
+    letter-spacing: 5px;
+    margin-top: 5px;
+}
+
+.playerCount {
+    text-align: center;
+    font-size: 22px;
+    margin: 20px 0;
+}
+
+.waitingPlayers {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.waitingPlayer {
+    background: #f5f5f5;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.message {
+    text-align: center;
+    color: #666;
+}
+
+
+/* =========================
+   Game Header
+========================= */
+
+.gameHeader {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    text-align: center;
+
+    background: white;
+    border-radius: 10px;
+    padding: 12px;
+
+    margin-bottom: 15px;
+}
+
+.timer {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   Game Layout
+========================= */
+
+.gameLayout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 15px;
+}
+
+.boardPanel,
+.rankingPanel {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.boardPanel h2,
+.rankingPanel h2 {
+    margin-top: 0;
+}
+
+/* =========================
+   Start Point
+========================= */
+
+.startRow {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.startCell {
+    width: min(70px, 10vw);
+    aspect-ratio: 1;
+
+    border: 2px solid #1769aa;
+    background: #e5f1ff;
+
+    border-radius: 8px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-top: 6px;
+}
+
+.startLabel {
+    font-size: 9px;
+    font-weight: bold;
+}
+
+.startNumber {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.startPlayer {
+    z-index: 2;
+}
+
+/* =========================
+   Board
+========================= */
+
+.board {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    width: 100%;
+}
+
+.boardRow {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+
+    width: 100%;
+}
+
+.cell {
+    width: min(70px, 18vw);
+    aspect-ratio: 1;
+
+    border: 1px solid #ddd;
+    background: #fafafa;
+
+    border-radius: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+
+    position: relative;
+}
+
+.cell.danger {
+    background: #ffcccc;
+    border: 2px solid #d32f2f;
+    color: #b71c1c;
+    font-weight: bold;
+}
+
+.cell.goal {
+    background: #ffe7a8;
+    font-weight: bold;
+}
+
+.cell.start {
+    background: #e5f1ff;
+}
+
+
+
+.playerDot {
+    position: absolute;
+
+    width: 18px;
+    height: 18px;
+
+    border-radius: 50%;
+
+    background: #1769aa;
+    color: white;
+
+    font-size: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================
+   Ranking
+========================= */
+
+.ranking {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rankRow {
+    display: grid;
+    grid-template-columns: 30px 1fr 50px;
+    align-items: center;
+
+    padding: 8px;
+
+    border-radius: 5px;
+    background: #f5f5f5;
+}
+
+.rankRow.me {
+    background: #e5f1ff;
+    font-weight: bold;
+}
+
+.rankPosition {
+    text-align: center;
+}
+
+.rankName {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.rankScore {
+    text-align: right;
+}
+
+
+/* =========================
+   Choice
+========================= */
+
+.choicePanel {
+    margin-top: 15px;
+
+    background: white;
+    border-radius: 10px;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.choicePanel h2 {
+    margin-top: 0;
+}
+
+.choiceButtons {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+}
+
+.choiceButtons button {
+    font-size: 28px;
+    font-weight: bold;
+    min-height: 70px;
+    background: #333;
+}
+
+.choiceButtons button.selected {
+    background: #1769aa;
+    transform: scale(1.03);
+}
+
+.choiceButtons button:disabled {
+    opacity: 0.35;
+    cursor: default;
+}
+
+.myChoice {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+
+/* =========================
+   Result
+========================= */
+
+.resultPanel {
+    margin-top: 15px;
+
+    background: white;
+    border-radius: 10px;
+
+    padding: 20px;
+
+    text-align: center;
+}
+
+.resultNumbers {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 8px;
+}
+
+.resultNumber {
+    padding: 10px 4px;
+    background: #f3f3f3;
+    border-radius: 6px;
+}
+
+.resultNumber.zero {
+    background: #ffcccc;
+    font-weight: bold;
+}
+
+.resultMessage {
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.eliminationNotice {
+    width: min(500px, 90vw);
+
+    margin: 15px auto;
+
+    padding: 16px;
+
+    background: #fff0f0;
+
+    border: 2px solid #d32f2f;
+
+    border-radius: 10px;
+
+    text-align: center;
+}
+
+.eliminationTitle {
+    font-size: 24px;
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.eliminationNames {
+    font-size: 20px;
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.eliminationReason {
+    font-size: 14px;
+    color: #555;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   Final
+========================= */
+
+.finalRanking {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.finalRow {
+    display: grid;
+    grid-template-columns: 45px 1fr 60px;
+
+    padding: 12px;
+
+    background: #f4f4f4;
+
+    border-radius: 7px;
+}
+
+
+/* =========================
+   Error
+========================= */
+
+.errorMessage {
+    position: fixed;
+
+    left: 50%;
+    bottom: 20px;
+
+    transform: translateX(-50%);
+
+    background: #d32f2f;
+    color: white;
+
+    padding: 14px 20px;
+
+    border-radius: 8px;
+
+    z-index: 100;
+}
+
+
+/* =========================
+   Mobile
+========================= */
+
+@media (max-width: 800px) {
+
+    .container {
+        padding: 10px;
+    }
+
+    .header h1 {
+        font-size: 25px;
+    }
+
+    .gameLayout {
+        grid-template-columns: 1fr;
+    }
+
+    .rankingPanel {
+        order: 2;
+    }
+
+    .boardPanel {
+        order: 1;
+    }
+
+    .gameHeader {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    .gameHeader > div:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .choiceButtons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .choiceButtons button {
+        min-height: 60px;
+    }
+
+    .board {
+        gap: 2px;
+    }
+
+    .cell {
+        font-size: 9px;
+    }
+
+    .playerDot {
+        width: 15px;
+        height: 15px;
+        font-size: 7px;
+    }
+}
