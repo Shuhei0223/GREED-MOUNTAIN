@@ -210,6 +210,34 @@ button.primary {
     gap: 15px;
 }
 
+@media (max-width: 600px) {
+
+    .gameLayout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* 盤面 */
+    .boardPanel {
+        order: 1;
+    }
+
+    /* 進む数 */
+    .choicePanel {
+        order: 2;
+        width: 100%;
+    }
+
+    /* 順位 */
+    .rankingPanel {
+        order: 3;
+        width: 100%;
+    }
+
+}
+
 .boardPanel,
 .rankingPanel {
     background: white;
@@ -627,4 +655,33 @@ button.primary {
         height: 15px;
         font-size: 7px;
     }
+}
+@media (max-width: 600px) {
+
+    .gameLayout {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* 盤面をスマホだけ50% */
+    .boardPanel {
+        width: 50%;
+    }
+
+    .board {
+        width: 100%;
+    }
+
+    /* 進む数 */
+    .choicePanel {
+        width: 100%;
+    }
+
+    /* 順位 */
+    .rankingPanel {
+        width: 100%;
+    }
+
 }

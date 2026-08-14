@@ -463,17 +463,22 @@ socket.on("roundResult", data => {
 
     }
 
-    if (data.zeroNumbers.length === 1) {
+if (data.zeroNumbers.length === 1) {
 
-        resultMessage.textContent =
-            `${data.zeroNumbers[0]} が最多！ → 0マス`;
+    resultMessage.textContent =
+        `${data.zeroNumbers[0]} が最多！ → 0マス`;
 
-    } else {
+} else if (data.zeroNumbers.length >= 2) {
 
-        resultMessage.textContent =
-            `${data.zeroNumbers.join("・")} が同率最多！ → すべて0マス`;
+    resultMessage.textContent =
+        `${data.zeroNumbers.join("・")} が同率最多！ → すべて0マス`;
 
-    }
+} else {
+
+    // 最多票が1票だった場合
+    resultMessage.textContent = "";
+
+}
 
 
     // 脱落者通知
@@ -596,8 +601,9 @@ function updateRanking() {
             </div>
 
             <div class="rankName">
-                ${escapeHtml(player.name)}
-            </div>
+    ${escapeHtml(player.name)}
+    ${player.eliminated ? "【滑落】" : ""}
+</div>
 
             <div class="rankScore">
                 ${player.position}
