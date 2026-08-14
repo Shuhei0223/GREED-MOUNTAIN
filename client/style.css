@@ -11,8 +11,7 @@ body {
         "Segoe UI",
         sans-serif;
 
-    color: #eee;
-
+   
     background-image:
         linear-gradient(
             rgba(5, 8, 12, 0.68),
@@ -256,7 +255,7 @@ button.primary {
     background: rgba(20, 23, 28, 0.82);
     border-radius: 10px;
     padding: 15px;
-    color: #eee;
+   
 }
 
 .boardPanel h2,
@@ -333,8 +332,7 @@ button.primary {
 
     background: rgba(40, 44, 50, 0.78);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #eee;
-
+   
 
     border-radius: 5px;
 
@@ -433,7 +431,7 @@ button.primary {
     margin-top: 15px;
 
     background: rgba(20, 23, 28, 0.88);
-    color: #eee;
+   
     border-radius: 10px;
 
     padding: 20px;
@@ -482,7 +480,7 @@ button.primary {
     margin-top: 15px;
 
     background: rgba(20, 23, 28, 0.88);
-    color: #eee;
+  
     border-radius: 10px;
 
     padding: 20px;
