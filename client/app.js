@@ -412,16 +412,23 @@ socket.on("choiceAccepted", data => {
 
 function updateChosenCount() {
 
-    const count =
+    const activePlayers =
         players.filter(
+            player => !player.eliminated
+        );
+
+    const count =
+        activePlayers.filter(
             player => player.choice !== null
         ).length;
 
     chosenCount.textContent =
         count;
 
-}
+    totalCount.textContent =
+        activePlayers.length;
 
+}
 
 // ========================================
 // Round result

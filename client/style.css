@@ -672,7 +672,7 @@ button.primary {
 
     .boardPanel {
         order: 1;
-        width: 50%;
+        width: 100%;
         align-self: center;
     }
 
