@@ -467,20 +467,39 @@ button.primary {
     font-weight: bold;
 }
 
+.eliminationOverlay {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    z-index: 9998;
+}
+
 .eliminationNotice {
-    width: min(500px, 90vw);
+    position: fixed;
 
-    margin: 15px auto;
+    top: 50%;
+    left: 50%;
 
-    padding: 16px;
+    transform: translate(-50%, -50%);
+
+    width: min(500px, 85vw);
+
+    padding: 25px 20px;
 
     background: #fff0f0;
 
-    border: 2px solid #d32f2f;
+    border: 3px solid #d32f2f;
 
-    border-radius: 10px;
+    border-radius: 14px;
 
     text-align: center;
+
+    z-index: 9999;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 .eliminationTitle {

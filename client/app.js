@@ -76,8 +76,11 @@ const finalRanking =
 const errorMessage =
     document.getElementById("errorMessage");
 
+const eliminationOverlay =
+    document.getElementById("eliminationOverlay");
+
 const eliminationNotice =
-    document.getElementById("eliminationNotice");    
+    document.getElementById("eliminationNotice");;    
 
 // ========================================
 // State
@@ -486,7 +489,7 @@ if (
 
     eliminationNotice.innerHTML = `
         <div class="eliminationTitle">
-            ⚠ 脱落！
+            ⚠ 滑落！
         </div>
 
         <div class="eliminationNames">
@@ -494,20 +497,19 @@ if (
         </div>
 
         <div class="eliminationReason">
-            43・44マスで複数人が重なったため脱落しました
+            43・44マスで複数人が重なったため滑落しました
         </div>
     `;
 
-    eliminationNotice.classList.remove("hidden");
+    eliminationOverlay.classList.remove("hidden");
 
-    // 4秒後に消す
     setTimeout(() => {
-        eliminationNotice.classList.add("hidden");
+        eliminationOverlay.classList.add("hidden");
     }, 4000);
 
 } else {
 
-    eliminationNotice.classList.add("hidden");
+    eliminationOverlay.classList.add("hidden");
 
 }
 
