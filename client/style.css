@@ -656,31 +656,35 @@ button.primary {
         font-size: 7px;
     }
 }
+
 @media (max-width: 600px) {
 
-    .gameLayout {
+    /* スマホではゲーム全体を縦並び */
+    #game {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        gap: 15px;
     }
 
-    /* 盤面をスマホだけ50% */
+    /* 盤面 */
+    .gameLayout {
+        display: contents;
+    }
+
     .boardPanel {
+        order: 1;
         width: 50%;
-    }
-
-    .board {
-        width: 100%;
+        align-self: center;
     }
 
     /* 進む数 */
     .choicePanel {
+        order: 2;
         width: 100%;
     }
 
     /* 順位 */
     .rankingPanel {
+        order: 3;
         width: 100%;
     }
 
