@@ -253,9 +253,10 @@ button.primary {
 
 .boardPanel,
 .rankingPanel {
-    background: white;
+    background: rgba(20, 23, 28, 0.82);
     border-radius: 10px;
     padding: 15px;
+    color: #eee;
 }
 
 .boardPanel h2,
@@ -330,8 +331,10 @@ button.primary {
     width: min(70px, 18vw);
     aspect-ratio: 1;
 
-    border: 1px solid #ddd;
-    background: #fafafa;
+    background: rgba(40, 44, 50, 0.78);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #eee;
+
 
     border-radius: 5px;
 
@@ -429,7 +432,8 @@ button.primary {
 .choicePanel {
     margin-top: 15px;
 
-    background: white;
+    background: rgba(20, 23, 28, 0.88);
+    color: #eee;
     border-radius: 10px;
 
     padding: 20px;
@@ -477,7 +481,8 @@ button.primary {
 .resultPanel {
     margin-top: 15px;
 
-    background: white;
+    background: rgba(20, 23, 28, 0.88);
+    color: #eee;
     border-radius: 10px;
 
     padding: 20px;
