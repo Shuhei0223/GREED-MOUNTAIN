@@ -705,3 +705,10 @@ button.primary {
     }
 
 }
+
+.boardPanel h2,
+.rankingPanel h2,
+.choicePanel h2,
+.resultPanel h2 {
+    color: #fff;
+}
