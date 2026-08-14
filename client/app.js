@@ -405,6 +405,13 @@ socket.on("choiceAccepted", data => {
 
 });
 
+socket.on("playersUpdate", data => {
+
+    players = data.players;
+
+    updateChosenCount();
+
+});
 
 // ========================================
 // Update selected count

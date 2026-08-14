@@ -545,12 +545,17 @@ io.on("connection", socket => {
         return;
     }
 
-    // 選択
-    player.choice = number;
+   // 選択
+player.choice = number;
 
-    socket.emit("choiceAccepted", {
-        choice: number
-    });
+socket.emit("choiceAccepted", {
+    choice: number
+});
+
+// 全員に最新の選択状況を送る
+io.to(roomId).emit("playersUpdate", {
+    players: getPublicPlayers(room)
+});
 
     // 脱落者を除いて全員選択済みなら即集計
     const activePlayers =
