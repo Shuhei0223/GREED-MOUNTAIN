@@ -330,7 +330,7 @@ button.primary {
     width: min(70px, 18vw);
     aspect-ratio: 1;
 
-    background: rgba(77, 80, 86, 0.78);
+    background: rgba(255, 255, 255, 0.482);
     border: 1px solid rgba(255, 255, 255, 0.15);
    
 
@@ -705,6 +705,8 @@ button.primary {
     }
 
 }
+
+.myChoice,
 .header h1,
 .resultMessage,
 .boardPanel h2,
