@@ -806,9 +806,7 @@ function updateBoard() {
     startNumber.className =
         "startNumber";
 
-    startNumber.textContent =
-        "0";
-
+  
 
     startCell.appendChild(startLabel);
     startCell.appendChild(startNumber);
